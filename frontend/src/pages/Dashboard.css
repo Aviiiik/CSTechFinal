@@ -1,0 +1,176 @@
+/* Full-screen gradient background */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 16px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+/* Main container — centered content with padding */
+.dashboard {
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Headings */
+h2, h3, h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+.task-block h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+/* Agent Form Section */
+.agent-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.agent-form input,
+.agent-form button,
+input[type="file"],
+button {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.agent-form input {
+  width: 180px;
+}
+
+input[type="file"] {
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  color: black;
+}
+
+button {
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+/* Agent and Task Cards */
+.agent-list,
+.task-block {
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Agent and Task List Items */
+.agent-list li,
+.task-block li {
+  margin: 0.4rem 0;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Task row formatting */
+.task-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.task-name,
+.task-phone,
+.task-notes {
+  flex: 1 1 30%;
+  min-width: 100px;
+  font-size: 14px;
+  color: #333;
+  padding-right: 8px;
+  word-break: break-word;
+}
+
+.task-name {
+  font-weight: bold;
+}
+
+.task-block li:last-child {
+  border-bottom: none;
+}
+
+/* Delete button */
+.delete-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+/* Message box */
+.message {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #00ff00;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .agent-form {
+    flex-direction: column;
+  }
+
+  .agent-form input {
+    width: 100%;
+  }
+
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .task-name,
+  .task-phone,
+  .task-notes {
+    flex: 1 1 100%;
+    padding: 4px 0;
+  }
+}
