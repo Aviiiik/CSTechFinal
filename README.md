@@ -19,15 +19,29 @@ project-root/
 │ ├── models/ # Mongoose schemas (Agent, Task)
 
 │ ├── routes/ # Express route handlers
+
 │ ├── server.js # Entry point for backend server
+
 │ └── .env # Environment variables (JWT secret, DB URI)
+
 │
+
 ├── frontend/ # React.js dashboard interface
+
 │ ├── src/
-│ │ ├── components/ # Dashboard UI (Dashboard.js)
+
+│ │ ├── pages/ # Dashboard UI (Dashboard.js)
+
+│ │ ├── components/ # Login UI (Login.js)
+
 │ │ ├── App.js
+
 │ │ └── index.js
+
 │ └── public/
+
 │
+
 ├── README.md
+
 └── package.json # Separate for frontend and backend
