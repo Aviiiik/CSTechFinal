@@ -70,11 +70,19 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_super_secret_key_here
 💡 JWT_SECRET is used for signing authentication tokens (future login support).
 
+Seed your registered user
+Email:avikmallick1@gmail.com
+Password: test1
+
+Run this script
+node seed.js 
+
 Then run the backend:
 
 bash
 
-npm start
+node server.js
+
 🔹 Frontend Setup
 bash
 
