@@ -15,7 +15,9 @@ A full-stack web application for managing agents and automatically distributing 
 
 project-root/
 ├── backend/ # Node.js + Express API
+
 │ ├── models/ # Mongoose schemas (Agent, Task)
+
 │ ├── routes/ # Express route handlers
 │ ├── server.js # Entry point for backend server
 │ └── .env # Environment variables (JWT secret, DB URI)
