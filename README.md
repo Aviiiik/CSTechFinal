@@ -45,3 +45,44 @@ project-root/
 ├── README.md
 
 └── package.json # Separate for frontend and backend
+---
+
+## 🚀 Installation & Setup
+
+### 🔹 Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/task-dashboard-mern.git
+cd task-dashboard-mern
+
+🔹 Backend Setup
+bash
+Copy
+Edit
+cd backend
+npm install
+🔐 Create .env File
+Create a file named .env inside the /backend folder:
+
+env
+Copy
+Edit
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secret_key_here
+💡 JWT_SECRET is used for signing authentication tokens (future login support).
+
+Then run the backend:
+
+bash
+Copy
+Edit
+npm start
+🔹 Frontend Setup
+bash
+Copy
+Edit
+cd ../frontend
+npm install
+npm start
+The frontend runs at http://localhost:3000 and connects to the backend at http://localhost:5000.
