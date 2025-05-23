@@ -108,67 +108,71 @@ function Dashboard() {
     }
   };
 
-  // Capitalize first letter of agent name (optional)
   const formatName = (name) => {
     return name?.charAt(0).toUpperCase() + name?.slice(1).toLowerCase();
   };
 
   return (
-    <div className="dashboard">
-      <h2>Agent Dashboard</h2>
+    <div className="dashboard-container">
+      <div className="dashboard-content">
+        <h2>Agent Dashboard</h2>
 
-      {/* Agent List */}
-      <div className="agent-list">
-        <h3>Current Agents</h3>
-        {agents.length === 0 && <p>No agents added yet.</p>}
-        <ul>
-          {agents.map(agent => (
-            <li key={agent._id}>
-              <strong>{agent.name}</strong> ({agent.email}) — {agent.mobile}
-              <button className="delete-btn" onClick={() => handleDeleteAgent(agent._id)}>🗑️</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="section">
+          <h3>Current Agents</h3>
+          {agents.length === 0 && <p>No agents added yet.</p>}
+          <ul>
+            {agents.map(agent => (
+              <li key={agent._id}>
+                <strong>{agent.name}</strong> ({agent.email}) — {agent.mobile}
+                <button className="delete-btn" onClick={() => handleDeleteAgent(agent._id)}>🗑️</button>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      {/* Add Agent Form */}
-      <h3>Add Agent</h3>
-      <div className="agent-form">
-        <input name="name" placeholder="Name" value={agentForm.name} onChange={handleAgentChange} />
-        <input name="email" placeholder="Email" value={agentForm.email} onChange={handleAgentChange} />
-        <input name="mobile" placeholder="Mobile (+123...)" value={agentForm.mobile} onChange={handleAgentChange} />
-        <input name="password" type="password" placeholder="Password" value={agentForm.password} onChange={handleAgentChange} />
-        <button onClick={handleAddAgent}>Add Agent</button>
-      </div>
-
-      {/* Upload CSV */}
-      <h3>Upload Task CSV</h3>
-      <input type="file" accept=".csv" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload & Distribute</button>
-
-      {/* Message */}
-      {message && <p className="message">{message}</p>}
-
-      {/* Distributed Tasks */}
-      <h3>Distributed Tasks</h3>
-      {Object.keys(tasks).length === 0 ? (
-        <p>No tasks assigned.</p>
-      ) : (
-        Object.entries(tasks).map(([agentName, taskList], idx) => (
-          <div key={idx} className="task-block">
-            <h4>{formatName(agentName)}</h4>
-            <ul>
-              {taskList.map((task, i) => (
-                <li key={i} className="task-row">
-                  <span className="task-name">{task.firstName}</span>
-                  <span className="task-phone">{task.phone}</span>
-                  <span className="task-notes">{task.notes}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="section">
+          <h3>Add Agent</h3>
+          <div className="agent-form">
+            <input name="name" placeholder="Name" value={agentForm.name} onChange={handleAgentChange} />
+            <input name="email" placeholder="Email" value={agentForm.email} onChange={handleAgentChange} />
+            <input name="mobile" placeholder="Mobile (+123...)" value={agentForm.mobile} onChange={handleAgentChange} />
+            <input name="password" type="password" placeholder="Password" value={agentForm.password} onChange={handleAgentChange} />
+            <button onClick={handleAddAgent}>Add Agent</button>
           </div>
-        ))
-      )}
+        </div>
+
+        <div className="section">
+          <h3>Upload Task CSV</h3>
+          <input type="file" accept=".csv" onChange={handleFileChange} />
+          <button onClick={handleUpload}>Upload & Distribute</button>
+        </div>
+
+        {message && <p className="message">{message}</p>}
+
+        <div className="section">
+          <h3>Distributed Tasks</h3>
+          {Object.keys(tasks).length === 0 ? (
+            <p>No tasks assigned.</p>
+          ) : (
+            <div className="task-columns">
+              {Object.entries(tasks).map(([agentName, taskList], idx) => (
+                <div key={idx} className="task-block">
+                  <h4>{formatName(agentName)}</h4>
+                  <ul>
+                    {taskList.map((task, i) => (
+                      <li key={i} className="task-row">
+                        <span className="task-name">{task.firstName}</span>
+                        <span className="task-phone">{task.phone}</span>
+                        <span className="task-notes">{task.notes}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
